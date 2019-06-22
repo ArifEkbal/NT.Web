@@ -1,0 +1,189 @@
+<div class='container-fluid'>
+    <div class="row"> 
+        <div class="col header">
+            New Pan Form
+        </div>   
+    </div>
+    <div class="row">
+        ApplicantTitle={{newPanModel.ApplicantTitle}}<br>
+        ApplicantName={{newPanModel.ApplicantName}}<br>
+        IsFather={{newPanModel.IsFather}}<br>
+        GuardianTitle={{newPanModel.GuardianTitle}}<br>
+        GuardianName={{newPanModel.GuardianName}}<br>
+     
+      
+    </div>
+    <form #icdForm="ngForm" (ngSubmit)="newPanFormFormSubmit()">
+            <div class="form-group">
+                    
+                    <div class="row">
+                            <div class="col-md-4">
+                                <label for="applicantName">Applicant Name</label>
+                            </div>
+                            <div class="col-md-2">
+                                <select 
+                                    class="drop-down form-control" 
+                                    [(ngModel)]="newPanModel.ApplicantTitle"
+                                    name="applicantTitle"
+                                    required
+                                    #applicantTitle="ngModel"
+                                >
+                                  <option value="">Select</option>
+                                      <option 
+                                          *ngFor="let applicantTitle of applicantTitles" 
+                                          [value]="applicantTitle.id"
+                                      >
+                                          {{applicantTitle.title}}
+                                      </option>
+                                </select>
+                                <div class="alert alert-danger" *ngIf="applicantTitle.touched && !applicantTitle.valid">
+                                  Applicant Title is required.
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <input 
+                                    required
+                                    [(ngModel)]="newPanModel.ApplicantName"
+                                    
+                                    #applicantName="ngModel"
+                                    name="applicantName"
+                                    type="text" 
+                                    class="form-control"/>
+                                            <div class="alert alert-danger" *ngIf="applicantName.touched && !applicantName.valid">
+                                                        Applicant Name is required.   
+                                            </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-4">
+                                <mat-radio-group 
+                                    [(ngModel)]="newPanModel.IsFather" 
+                                    class="radio-btn" 
+                                    name="guardianRadioBtns" 
+                                    *ngFor="let guardianRadioBtn of guardianRadioBtns">
+                                            <mat-radio-button 
+                                                [value]="guardianRadioBtn.id"
+                                                [checked]="true">
+                                                    {{guardianRadioBtn.name}}
+                                            </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="col-md-2 center">
+                              <select 
+                              class="drop-down form-control" 
+                              [(ngModel)]="newPanModel.GuardianTitle"
+                              name="guardianTitle"
+                              #guardianTitle="ngModel"
+                              required
+                          >
+                          <option value="">Select</option>
+                              <option 
+                                  *ngFor="let guardianTitle of guardianTitles" 
+                                  [value]="guardianTitle.id"
+                              >
+                                  {{guardianTitle.name}}
+                              </option>
+                          </select>
+                          <div class="alert alert-danger" *ngIf="guardianTitle.touched && !guardianTitle.valid">
+                              Guardian Title is required
+                          </div>
+                            </div>
+                            <div class="col center">
+                                <input  
+                                    [(ngModel)]="newPanModel.GuardianName" 
+                                    name="guardianName" 
+                                    #guardianName="ngModel"
+                                    type="text" 
+                                    required
+                                    class="form-control"/>
+                                    <div class="alert alert-danger" *ngIf="guardianName.touched && !guardianName.valid">
+                                      <div *ngIf="guardianName.errors.required">
+                                          Guardian Name is required.
+                                      </div>
+                                      </div>
+                            </div>
+                    </div>
+                  <div class="row">
+                          <div class="col-md-4">
+                              Upload File 1
+                          </div>
+                          <div class="col-md-5">
+                                  <div class="custom-file mb-3">
+                                        <input class="fileUpload" 
+                                        type="file" 
+                                        name="filename"
+                                        (change)=onFileSelected($event)
+                                        [disabled]="!(icdModel.GuardianName && 
+                                                    icdModel.ApplicantName && 
+                                                    icdModel.ApplicantTitle && 
+                                                    icdModel.GuardianTitle
+                                                    )">
+                                     </div>
+                          </div>
+                          <div class="col-md-1">
+                                  <button mat-raised-button  [disabled]="!fileIsSelected" (click)="onUpload()" >
+                                    Upload
+                                  </button>
+                          </div>
+                  </div>       
+                      <div class="row">
+                              <div class="col-md-4">
+                                  Upload File 2
+                              </div>
+                              <div class="col-md-5">
+                                      <div class="custom-file mb-3">
+                                            <input class="fileUpload" 
+                                            type="file" 
+                                            name="filename"
+                                            (change)=onFileSelected($event)
+                                            [disabled]="!(icdModel.GuardianName && 
+                                                        icdModel.ApplicantName && 
+                                                        icdModel.ApplicantTitle && 
+                                                        icdModel.GuardianTitle
+                                                        )">
+                                         </div>
+                              </div>
+                              <div class="col-md-1">
+                                      <button mat-raised-button  [disabled]="!fileIsSelected" (click)="onUpload()" >
+                                        Upload
+                                      </button>
+                                   </div>
+                          </div>
+                      <div class="row">
+                          <div class="col-md-4">
+                              Upload File 3
+                          </div>
+                          <div class="col-md-5">
+                                  <div class="custom-file mb-3">
+                                        <input class="fileUpload" 
+                                        type="file" 
+                                        name="filename"
+                                        (change)=onFileSelected($event)
+                                        [disabled]="!(icdModel.GuardianName && 
+                                                    icdModel.ApplicantName && 
+                                                    icdModel.ApplicantTitle && 
+                                                    icdModel.GuardianTitle
+                                                    )">
+                                     </div>
+                          </div>
+                          <div class="col-md-1">
+                                  <button mat-raised-button  [disabled]="!fileIsSelected" (click)="onUpload()" >
+                                    Upload
+                                  </button>
+                               </div>
+                      </div>
+                    <div class="row row-btn">
+                            <div class="col">
+                                    <button mat-raised-button 
+                                    > Submit</button>
+                            </div>
+                    </div>
+            </div>
+    </form>
+    
+  </div>
+  
+  
+  
+  

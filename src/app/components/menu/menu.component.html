@@ -1,0 +1,143 @@
+<div class="container-fluid ">
+        <div class="row menu-label" routerLink="/home/dashboard">
+                       
+                <div class="col-12">
+                        <i class='fas fa-home icon'></i> 
+                        Dashboard 
+                </div>
+        
+        </div>
+        <div class="row menu-label" (click)="onPanCardClick()">
+                <div class="col-12"  >
+                    <i class='fas fa-address-card icon'></i>&nbsp;PAN Card
+                            <i class="fa fa-sort-down" *ngIf="!panCardIsClicked"></i>
+                            <i class="fa fa-sort-asc" *ngIf="panCardIsClicked"></i>
+                </div>
+        </div>
+        <div class="row submenu-label" *ngIf="panCardIsClicked" routerLink="/home/pancard" >
+                <div class="col-12 sub-col">
+                    <a routerLink="/home/pancard"><i class='far fa-address-card icon'></i>&nbsp;New </a>  
+                 </div>
+         </div>
+        <div class="row submenu-label" *ngIf="panCardIsClicked"  >
+                <div class="col-12 sub-col">
+                    <a routerLink="/home/pancard"><i class='fas fa-edit icon'></i>&nbsp;Update </a>  
+                 </div>
+        </div>
+        <div class="row menu-label" (click)="onCertificateClick()">
+                <div class="col-12 ">
+                            <i class='far fa-address-book icon'></i>&nbsp;Certificate
+                            <i class="fa fa-sort-down icon" *ngIf="!certificateIsClicked"></i>
+                            <i class="fa fa-sort-asc icon" *ngIf="certificateIsClicked"></i>
+                   
+                </div>
+        </div>
+        <div class="row submenu-label" *ngIf="certificateIsClicked" >
+                <div class="col-12 sub-col">
+                    <a routerLink="/home/birth-certificate" ><i class='fas fa-id-card-alt icon'></i>&nbsp;Birth</a>  
+                 </div>
+         </div>
+        <div class="row submenu-label" *ngIf="certificateIsClicked" >
+                <div class="col-12 sub-col">
+                <a routerLink="/home/death-certificate" ><i class='fas fa-bed icon '></i>&nbsp;Death </a>  
+                 </div>
+        </div>
+        
+        <div class="row submenu-label" *ngIf="certificateIsClicked" >
+                        <div class="col-12 sub-col ">
+                                        <a routerLink="/home/income-caste-domicile">
+                                                <i class='fas fa-id-card-alt icon'></i>&nbsp;AJN</a>  
+                        </div>
+         </div>
+        <div class="row menu-label" (click)="onTransactionClick()">
+                <div class="col-12 ">
+                    <a href="#" ><i class='fas fa-calculator icon'></i>&nbsp;Transaction
+                    </a>
+                </div>
+        </div>
+        <div class="row menu-label wallet" (click)="onWalletClick()">
+                <div class="col-12">
+                        <a href="#" ><i class='fas fa-rupee-sign icon'></i>
+                            &nbsp;Wallet
+                                <i class="fa fa-sort-down" *ngIf="!walletIsClicked"></i>
+                                <i class="fa fa-sort-asc" *ngIf="walletIsClicked"></i>
+                        </a> 
+                 </div>
+        </div>
+        <div class="row submenu-label" *ngIf="walletIsClicked" >
+                <div class="col-12 sub-col">
+                    <a href="#" ><i class='fas fa-plus icon'></i>&nbsp;Add Balance</a>  
+                 </div>
+        </div>
+        <div class="row submenu-label" *ngIf="walletIsClicked" >
+                <div class="col-12 sub-col">
+                    <a href="#" ><i class='fas fa-hand-holding-usd icon'></i>&nbsp;Check Balance</a>  
+                 </div>
+        </div>
+        <div class="row menu-label" (click)="onReportClick()">
+                <div class="col-12  ">
+                        <a href="#"><i class='far fa-clipboard icon'></i>&nbsp;Report
+                                <i class="fa fa-sort-down" *ngIf="!reportIsClicked"></i>
+                                <i class="fa fa-sort-asc" *ngIf="reportIsClicked"></i>
+                        </a>
+                </div>
+        </div>
+        <div class="row submenu-label" *ngIf="reportIsClicked" (click)="onReportPanClick()">
+                <div class="col-12 sub-col">
+                        <a href="#"><i class='fas fa-address-card icon'></i>&nbsp;PAN
+                                <i class="fa fa-sort-down" *ngIf="!reportPanIsClicked"></i>
+                                <i class="fa fa-sort-asc" *ngIf="reportPanIsClicked"></i>
+                        </a>
+                 </div>
+        </div>
+        <div class="row sub-submenu-label" *ngIf="reportPanIsClicked" >
+                <div class="col-12 label">
+                    <a href="#" ><i class="fas fa-battery-quarter icon"></i>&nbsp;Pending</a>  
+                 </div>
+        </div>
+        <div class="row sub-submenu-label" *ngIf="reportPanIsClicked" >
+                <div class="col-12">
+                    <a href="#" ><i class="fas fa-battery-full icon"></i>&nbsp;Completed</a>  
+                 </div>
+        </div>
+        <div class="row submenu-label" *ngIf="reportIsClicked" (click)="onReportCertificateClick()">
+                <div class="col-12 sub-col">
+                        <a href="#"><i class='far fa-address-book icon'></i>&nbsp;Certificate
+                                <i class="fa fa-sort-down" *ngIf="!reportCertificateIsClicked"></i>
+                                <i class="fa fa-sort-asc" *ngIf="reportCertificateIsClicked"></i>
+                        </a>
+                 </div>
+        </div>
+        <div class="row sub-submenu-label" *ngIf="reportCertificateIsClicked" >
+                <div class="col-12 ">
+                    <a href="#" ><i class="fas fa-battery-quarter icon"></i>&nbsp;Pending</a>  
+                 </div>
+        </div>
+        <div class="row sub-submenu-label" *ngIf="reportCertificateIsClicked" >
+                <div class="col-12 ">
+                    <a href="#" ><i class="fas fa-battery-full icon"></i>&nbsp;Completed</a>  
+                 </div>
+        </div>
+        <div class="row submenu-label" *ngIf="reportIsClicked" (click)="onReportBirthDeathClick()">
+                <div class="col-12 sub-col">
+                        <a href="#"><i class='far fa-file icon'></i>&nbsp;Birth/Death
+                                <i class="fa fa-sort-down" *ngIf="!reportBirthDeathIsClicked"></i>
+                                <i class="fa fa-sort-asc" *ngIf="reportBirthDeathIsClicked"></i>
+                        </a>
+                 </div>
+        </div>
+        <div class="row sub-submenu-label" *ngIf="reportBirthDeathIsClicked" >
+                <div class="col-12">
+                    <a href="#" ><i class="fas fa-battery-quarter icon"></i>&nbsp;Pending</a>  
+                 </div>
+        </div>
+        <div class="row sub-submenu-label" *ngIf="reportBirthDeathIsClicked" >
+                <div class="col-12 ">
+                    <a href="#" ><i class="fas fa-battery-full icon"></i>&nbsp;Completed</a>  
+                 </div>
+        </div>
+        
+        
+              
+      </div>
+      

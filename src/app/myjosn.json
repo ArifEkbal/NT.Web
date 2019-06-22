@@ -1,0 +1,29 @@
+{
+    "Message": [
+        {
+            "msg1":"error_message"
+        }
+    ],
+    "Result": [
+        {
+            "Id": 1,
+            "AddressLine1": "Mohd Zeeshan C/O Naveen Travels, Near Railway Station",
+            "AddressLine2": "Mohammadabad Gohna",
+            "City": "KHAIRABAD MAU DISTRICT",
+            "State": "Railway Station",
+            "Country": "India",
+            "Zip": "276403    ",
+            "UserId": 0
+        },
+        {
+            "Id": 2,
+            "AddressLine1": "Test",
+            "AddressLine2": null,
+            "City": "Test",
+            "State": "Test",
+            "Country": "Test",
+            "Zip": "276403    ",
+            "UserId": 0
+        }
+    ]
+    }

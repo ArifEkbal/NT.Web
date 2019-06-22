@@ -1,0 +1,48 @@
+<div class="fluid-container" >
+    <!-- <div class="fluid-container" *ngIf='!values'> -->
+  <!--   <img  src="./assets/images/triangle.png" class="img-triangle"> 
+  <img src="./assets/images/circle.png" class="img-circle">  -->
+  {{values}}
+  <mat-card>
+    <div class="row row_1 ">
+      <div class="col-4 col_1">
+        
+          
+        </div>
+      
+      <div class="col col_2">
+        <form>
+          
+          <div class="form-group input-group ">
+              <div class="input-group-addon">
+                  <span class="fa fa-user"></span> 
+                </div> 
+          <input class="form-control" type="text" name="username" placeholder="Username"/>
+         
+          </div>
+          <div class="form-group input-group">
+              <div class="input-group-addon">
+                  <span class="fa fa-lock"></span> 
+                </div> 
+          <input class="form-control " type="password" name="password" placeholder="Password"/>
+        </div>
+        <div >
+          <a href="#" class="label-link" style="text-align:center">
+            Forgot Password?
+          </a>
+        </div>
+        <div class="wrapper">
+        <button class="btn btn-primary btn-submit" type="submit" routerLink="home"(click)= 'onLogin()' >Login </button>
+      </div>
+        </form>
+       
+       </div>
+    </div>
+    
+  </mat-card>
+  <!-- <img src="./assets/images/circle.png" class="img-circle"> -->
+ 
+</div>
+<!-- <div *ngIf="values">
+  <router-outlet></router-outlet>
+</div> -->

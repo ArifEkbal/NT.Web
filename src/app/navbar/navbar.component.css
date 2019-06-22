@@ -1,0 +1,30 @@
+.navbar{
+    color:white;
+}
+.nav{
+    color:white;
+}
+.menu-icon{
+   /* color:white;*/
+    padding-right:8px;
+    font-size:22px;
+    float:left;
+}
+.logo{
+    float:left;
+    text-align:left;
+   
+    }
+.item-list{
+       text-align:right;
+        
+    } 
+.justify-content-end{
+        width:100%;
+    }
+.nav-link{
+    color:white;
+}
+.dropdown-item{
+    right:0;
+}

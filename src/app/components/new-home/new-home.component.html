@@ -1,0 +1,21 @@
+<div class="container-fluid" id="container-fluid" [style.height.px]=mainContainerHeight>
+  <div class="row header">
+    <navbar></navbar>
+  </div>
+  <div class="row main-container" [style.height.px]=screenHeight-55>
+   <!--  <div class="col-lg-2 col-4 main-container-left collapse" id="main-container-left" [style.height.px]=screenHeight-headerHeight-2> -->
+      <div class="col-lg-2 col-4 main-container-left " id="main-container-left" [style.height.px]=screenHeight-headerHeight-2>
+     <app-menu></app-menu>
+    </div>
+    <div class="col-lg-10 col-8 main-container-right "  [style.width.px]=mainContainerRightWidth
+    [style.height.px]=mainContainerRightHeight>
+      <router-outlet></router-outlet>
+      
+          <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#main-container-left" aria-expanded="false" aria-controls="collapseExample">
+            Button with data-target
+          </button> -->
+       
+    </div>
+  </div>
+</div> 
+<!-- <app-menu></app-menu> -->

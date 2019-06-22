@@ -1,0 +1,80 @@
+.container-fluid{
+    background-color:rgb(187, 221, 240);
+    border-radius:2px; 
+}
+.row{
+    margin-bottom:12px;
+    
+    padding-left:1%;
+}
+.header{
+    text-align: center;
+    font-size:20px;
+    padding-bottom:15px;
+   
+}
+.label{
+    font-size:18px;
+    font-weight:420;
+}
+.form-control.ng-touched.ng-invalid{
+    border:2px solid red;
+}
+.drop-down{
+    padding-left:10px;
+    border:1px solid rgb(115, 167, 194);
+}
+
+.drop-down:hover{
+    color:black;
+    background-color:rgb(253, 253, 253);
+}
+/* .center{
+    padding-top:10px;
+} */
+.radio-btn{
+    padding-right:6px;
+    padding-left:0px;
+    size:12px;
+    
+}
+input{
+    border:1px solid rgb(115, 167, 194);
+}
+.row-btn{
+    padding-bottom:2%;
+}
+
+button{
+    background-color:rgb(115, 167, 194);
+}
+mat-checkbox{
+    padding-right:4px;
+    padding-left:2px;
+    
+    
+}
+
+.mat-checkbox-background{
+    background-color: red;
+}
+button{
+    float:right;
+    margin-top:5%;
+    border:1px solid rgb(92, 135, 156);
+    font-weight:500;
+    background-color:primary;
+    color:black;
+}
+.fileUpload{
+    border-radius:6px;
+    width:100%;
+    
+}
+#uploadDocuments{
+    border:2px solid rgb(92, 135, 156);;
+}
+.mat-raised-button {
+    
+}
+

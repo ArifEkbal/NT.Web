@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+/* body{
+    /* padding-top:57px; */
+
+    
+/* } */ 
+/* html, body {
+    margin: 0; 
+    overflow: hidden;  
+    padding-top:1.15%;
+        
+}
+@media only screen and (max-width: 600px) {
+     body{   
+            padding-top: 12.5%;
+            overflow:scroll;
+            
+        }
+} */
+.ag-theme-balham .ag-header {
+    color:green;
+    background-color:rgb(123, 175, 196)
+}
+/*NEw************/
+body{
+   /*  padding-top:4%; */
+   /* overflow:hidden !important; */
+}
+/*@media only screen and (max-width: 600px) {
+    body{   
+            padding-top:11.2%;
+            padding-bottom:6.5%;
+            overflow:auto;
+           
+    }
+}
+ */
+ ::ng-deep .blue-snackbar{
+     /* background:green;
+     position:absolute;
+     top:40%;
+     right:80%; */
+ }
+ .success-toaster{
+    background-color: #006600;
+    border:1px solid #006600;
+    position:relative;
+    bottom:32em;
+    color:white;
+    
+ }
+ .error-toaster{
+    background-color: red;
+    border:1px solid white;
+    position:relative;
+    bottom:32em;
+    color:white;
+    
+ }

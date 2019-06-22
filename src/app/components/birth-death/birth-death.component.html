@@ -1,0 +1,122 @@
+<div class='container-fluid'>
+    <div class="row">
+        <div class="col header">
+            Birth/Death Certificate Form
+        </div>
+    </div>
+    <div class="row">
+        ApplicantTitle={{birthModel.ApplicantTitle}}<br>
+        ApplicantName={{birthModel.ApplicantName}}<br>
+        FatherTitle={{birthModel.FatherTitle}}<br>
+        FatherName={{birthModel.FatherName}}<br>
+        icdModel.IsFile1Uploaded={{icdModel.IsFile1Uploaded}}<br>
+        icdModel.IsFile2Uploaded={{icdModel.IsFile2Uploaded}}<br>
+        icdModel.IsFile3Uploaded={{icdModel.IsFile3Uploaded}}<br>
+        icdModel.FileType={{icdModel.FileType}}<br>
+
+
+    </div>
+    <form #icdForm="ngForm" (ngSubmit)="birthDeathFormSubmit()">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="applicantName">Applicant Name</label>
+                </div>
+                <div class="col-md-2">
+                    <select class="drop-down form-control" [(ngModel)]="birthModel.ApplicantTitle" name="applicantTitle"
+                        required #applicantTitle="ngModel">
+                        <option value="">Select</option>
+                        <option *ngFor="let applicantTitle of applicantTitles" [value]="applicantTitle.id">
+                            {{applicantTitle.title}}
+                        </option>
+                    </select>
+                    <div class="alert alert-danger" *ngIf="applicantTitle.touched && !applicantTitle.valid">
+                        Applicant Title is required.
+                    </div>
+
+                </div>
+                <div class="col">
+                    <input required [(ngModel)]="birthModel.ApplicantName" #applicantName="ngModel" name="applicantName"
+                        type="text" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="applicantName.touched && !applicantName.valid">
+                        Applicant Name is required.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="fatherName">Father's Name</label>
+                </div>
+                <div class="col-md-2 center">
+                    <select class="drop-down form-control" [(ngModel)]="birthModel.FatherTitle" name="fatherTitle"
+                        #guardianTitle="ngModel" required>
+                        <option value="">Select</option>
+                        <option *ngFor="let fatherTitle of fatherTitles" [value]="fatherTitle.id">
+                            {{fatherTitle.title}}
+                        </option>
+                    </select>
+                    <div class="alert alert-danger" *ngIf="fatherTitle.touched && !fatherTitle.valid">
+                        Father's Title is required
+                    </div>
+                </div>
+                <div class="col center">
+                    <input [(ngModel)]="birthModel.fatherName" name="fatherName" #guardianName="ngModel" type="text"
+                        required class="form-control" />
+                    <div class="alert alert-danger" *ngIf="fatherName.touched && !fatherName.valid">
+                        <div *ngIf="fatherName.errors.required">
+                                Father's Name is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="label" for="fileType">Attachment</label>
+                </div>
+                <div class="col-md-2">
+                    <select class="drop-down form-control" [(ngModel)]="icdModel.FileType" name="fileType" required
+                        #fileType="ngModel">
+                        <option value="">Select</option>
+                        <option *ngFor="let fileType of fileTypes" [value]="fileType.id">
+                            {{fileType.name}}
+                        </option>
+                    </select>
+                    <div class="alert alert-danger" *ngIf="fileType.touched && !fileType.valid">
+                        file Type is required.
+                    </div>
+
+                </div>
+                <div class="col-md-5">
+                    <div class="custom-file mb-3">
+                        <input class="fileUpload" type="file" name="filename" (change)=onFileSelected($event)
+                            [disabled]="!(birthModel.GuardianName && 
+                                                    birthModel.ApplicantName && 
+                                                    birthModel.ApplicantTitle && 
+                                                    birthModel.GuardianTitle
+                                                    )">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button mat-raised-button [disabled]="!fileIsSelected" (click)="onUpload()">
+                        Upload
+                    </button>
+                </div>
+            </div>
+            <div class="row row-btn">
+                <div class="col">
+                    <button mat-raised-button> Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<!-- <mat-form-field>
+        <input matInput value="Disco party!" placeholder="Message" #message>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput value="Dance" placeholder="Action" #action>
+      </mat-form-field>
+      
+      <button mat-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button> -->

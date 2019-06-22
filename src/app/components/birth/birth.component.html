@@ -1,0 +1,107 @@
+<div class='container-fluid'>
+  <div class="row">
+    <div class="col header">
+      <h1>Birth Form</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  
+  <form #birthForm="ngForm" (ngSubmit)="birthFormSubmit()">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="applicantName">Applicant Name</label>
+        </div>
+        <div class="col-md-2">
+          <select class="drop-down form-control" [(ngModel)]="birthModel.ApplicantTitle" name="applicantTitle" required
+            #applicantTitle="ngModel">
+            <option value="">Select</option>
+            <option *ngFor="let applicantTitle of applicantTitles" [value]="applicantTitle.id">
+              {{applicantTitle.title}}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf="applicantTitle.touched && !applicantTitle.valid">
+            Applicant Title is required.
+          </div>
+
+        </div>
+        <div class="col">
+          <input required [(ngModel)]="birthModel.ApplicantName" #applicantName="ngModel" name="applicantName" type="text"
+            class="form-control" />
+          <div class="alert alert-danger" *ngIf="applicantName.touched && !applicantName.valid">
+            Applicant Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="fatherName">Father's Name</label>
+        </div>
+        <div class="col-md-2">
+          <select class="drop-down form-control" [(ngModel)]="birthModel.FatherTitle" name="fatherTitle" required
+            #fatherTitle="ngModel">
+            <option value="">Select</option>
+            <option *ngFor="let fatherTitle of fatherTitles" [value]="fatherTitle.id">
+              {{fatherTitle.title}}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf="fatherTitle.touched && !fatherTitle.valid">
+            Father's Title is required.
+          </div>
+
+        </div>
+        <div class="col">
+          <input required [(ngModel)]="birthModel.FatherName" #fatherName="ngModel" name="fatherName" type="text" class="form-control" />
+          <div class="alert alert-danger" *ngIf="fatherName.touched && !fatherName.valid">
+            Father's Name is required.
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-4">
+          <label class="label" for="fileType">Attachment</label>
+        </div>
+        <div class="col-md-2">
+          <select class="drop-down form-control" [(ngModel)]="birthModel.FileType" name="fileType" required #fileType="ngModel">
+            <option value="">Select</option>
+            <option *ngFor="let fileType of fileTypes" [value]="fileType.id">
+              {{fileType.name}}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf="fileType.touched && !fileType.valid">
+            file Type is required.
+          </div>
+
+        </div>
+        <div class="col-md-4">
+          <div class="custom-file mb-3">
+            <input class="fileUpload" type="file" name="filename" (change)=onFileSelected($event) [disabled]="!(birthModel.FatherName && 
+                                                    birthModel.ApplicantName && 
+                                                    birthModel.ApplicantTitle && 
+                                                    birthModel.FatherTitle )">
+          </div>
+        </div>
+        <div class="col-md-1">
+          <button type="button" mat-raised-button [disabled]="!fileIsSelected" (click)="onUpload()">
+            Upload
+          </button>
+        </div>
+      </div>
+
+      <div class="row row-btn">
+        <div class="col">
+          <button type="submit" mat-raised-button [disabled]='!(birthModel.IsFile1Uploaded == true 
+          && birthModel.IsFile2Uploaded == true && birthModel.IsFile3Uploaded == true)'>
+            Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

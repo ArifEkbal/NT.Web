@@ -1,0 +1,74 @@
+.mat-card{
+    width:60%;
+    left:22%;
+    height:28em;
+    /* //margin-top:20px; */
+    bottom:2%;
+    top:40px;
+    padding:0px;
+}
+.fluid-container{
+    /* background-color:rgb(224, 218, 224); */
+    height:37.2em;
+    margin:1px;
+    overflow-y: hidden;
+  /* background-image:url("");  */
+    /* background-repeat:no-repeat;  */
+}
+.row_1{
+    margin:0px;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+    height:28em;
+}
+.col_1{
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+   /*  background-color:rgb(31, 196, 207);  */
+   background-color:rgb(96, 191, 185);
+    
+    
+}
+.col_2{
+    top:30%;
+    left:4%;
+}
+.form-control{
+        width:60%;
+}
+.input-group{
+    width:80%;
+     background-color: rgb(96, 191, 185); 
+     border-radius:4px;
+}
+.input-group-addon{
+    width:10%;
+}
+.fa{
+    margin-left:25%;
+    margin-top:25%;
+}
+.btn{
+    
+    border-radius:4px;
+    background-color:rgb(96, 191, 185);
+    
+}
+.btn-submit{
+   margin-right:10%;
+   margin-top:4px;
+   
+ 
+} 
+.wrapper {
+    text-align: center;
+}
+.label-link{
+    font-size:14px;
+    color:rgb(96, 191, 185);
+}
+
+
+
+
+

@@ -1,0 +1,40 @@
+.container-fluid{
+   
+}
+.header{
+    height:55px;
+}
+.main-container{
+    border:2px solid white; 
+    border-left:0px;
+   
+}
+.main-container-left{
+   
+    border-right:2px solid white;
+    background-color:rgb(48, 47, 47);
+    padding-right:0px;
+    padding-left:0px;
+}
+.main-container-right{
+    background-color:rgb(231, 230, 230);
+    border-radius:2px;
+    padding-top:2px;
+     overflow:auto;
+     padding-left: 2px;
+     padding-right:2px;
+     padding-bottom:2px;
+}
+
+.side{
+    
+   float:left;
+    width:40px;
+    border:2px solid blue;
+    
+}
+/* .main-container{
+    border:2px solid green;
+    float:right
+    
+} */
