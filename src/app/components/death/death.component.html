@@ -11,7 +11,7 @@
     <br>
   </div>
 
-  <form #icdForm="ngForm" (ngSubmit)="icdFormSubmit()">
+  <form #deathForm="ngForm" (ngSubmit)="deathFormSubmit(deathForm)">
     <div class="form-group">
       <div class="row">
         <div class="col-md-4">
@@ -88,14 +88,14 @@
         </div>
         <div class="col-md-4">
           <div class="custom-file mb-3">
-            <input class="fileUpload" type="file" name="filename" (change)=onFileSelected($event) [disabled]="!(deathModel.GuardianName && 
+            <input #fileChosen  class="fileUpload" type="file" name="filename" (change)=onFileSelected($event) [disabled]="!(deathModel.GuardianName && 
                                                     deathModel.ApplicantName && 
                                                     deathModel.ApplicantTitle && 
                                                     deathModel.GuardianTitle)">
           </div>
         </div>
         <div class="col-md-1">
-          <button type="button" mat-raised-button [disabled]="!fileIsSelected" (click)="onUpload()">
+          <button type="button" mat-raised-button [disabled]="!isUploadEnable" (click)="onUpload();fileChosen.value='' ">
             Upload
           </button>
         </div>

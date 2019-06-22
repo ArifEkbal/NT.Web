@@ -10,6 +10,7 @@ import { ApplicantTitles } from 'src/app/Constants/applicant-titles';
 import { ICDFileType } from 'src/app/Constants/file-type';
 import { FileUploadStatus } from 'src/app/Models/file-upload-status.model';
 import { ToasterService } from 'src/app/helper/toaster.service';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -25,7 +26,7 @@ export class ICDComponent implements OnInit {
   postURL = API_URL + "ICDCertificate";
   public fileUploaded = false;
   selectedFile: File;
-  fileIsSelected = false;
+  isUploadEnable = false;
   fileUploadStatus: FileUploadStatus;
   certificateTypes = [
     { id: 1, name: 'Income' },
@@ -50,7 +51,7 @@ export class ICDComponent implements OnInit {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
     console.log(this.selectedFile);
-    this.fileIsSelected = true;
+    this.isUploadEnable = true;
   }
   onUpload() {
     const fd = new FormData;
@@ -77,14 +78,15 @@ export class ICDComponent implements OnInit {
       })
     this.fileUploaded = true;
   }
-  icdFormSubmit() {
-    console.log("hi");
+  icdFormSubmit(icdForm:NgForm) {
+    
     this.crudService.postData(this.postURL, this.icdModel).
       subscribe((response: FileUploadStatus)=> {
         this.fileUploadStatus = response;
         console.log(response);
         if(response.StatusCode == 201){
           this.toasterService.openSuccessSnackbar("Form submitted successfully");
+          icdForm.resetForm();
         }
       },error => {
         this.toasterService.openErrorSnackbar("An unexpected error occured");

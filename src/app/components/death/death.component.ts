@@ -9,6 +9,7 @@ import { DeathFileType } from 'src/app/Constants/file-type';
 import { CrudService } from 'src/app/services/crud.service';
 import { HttpClient } from '@angular/common/http';
 import { ToasterService } from 'src/app/helper/toaster.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-death',
@@ -22,7 +23,7 @@ export class DeathComponent implements OnInit {
   postURL = API_URL + "DeathCertificate";
   public fileUploaded = false;
   selectedFile: File;
-  fileIsSelected = false;
+  private isUploadEnable = false;
   fileUploadStatus: FileUploadStatus;
   public applicantTitles = ApplicantTitles;
   public guardianTitles = GuardianTitles;
@@ -42,7 +43,7 @@ export class DeathComponent implements OnInit {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
     console.log(this.selectedFile);
-    this.fileIsSelected = true;
+    this.isUploadEnable = true;
   }
   onUpload() {
     const fd = new FormData;
@@ -69,14 +70,15 @@ export class DeathComponent implements OnInit {
       })
     this.fileUploaded = true;
   }
-  icdFormSubmit() {
-    console.log("hi");
+  deathFormSubmit(deathForm:NgForm) {
+    
     this.crudService.postData(this.postURL, this.deathModel).
       subscribe((response: FileUploadStatus) => {
         this.fileUploadStatus = response;
         console.log(response);
         if (response.StatusCode == 201) {
           this.toasterService.openSuccessSnackbar("Form submitted successfully");
+          deathForm.resetForm();
         }
       }, error => {
         this.toasterService.openErrorSnackbar("An unexpected error occured");

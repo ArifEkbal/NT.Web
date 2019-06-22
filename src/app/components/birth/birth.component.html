@@ -11,7 +11,7 @@
     <br>
   </div>
   
-  <form #birthForm="ngForm" (ngSubmit)="birthFormSubmit()">
+  <form #birthForm="ngForm" (ngSubmit)="birthFormSubmit(birthForm)">
     <div class="form-group">
       <div class="row">
         <div class="col-md-4">
@@ -81,14 +81,14 @@
         </div>
         <div class="col-md-4">
           <div class="custom-file mb-3">
-            <input class="fileUpload" type="file" name="filename" (change)=onFileSelected($event) [disabled]="!(birthModel.FatherName && 
+            <input #fileChosen class="fileUpload" type="file" name="filename" (change)=onFileSelected($event) [disabled]="!(birthModel.FatherName && 
                                                     birthModel.ApplicantName && 
                                                     birthModel.ApplicantTitle && 
                                                     birthModel.FatherTitle )">
           </div>
         </div>
         <div class="col-md-1">
-          <button type="button" mat-raised-button [disabled]="!fileIsSelected" (click)="onUpload()">
+          <button type="button" mat-raised-button [disabled]="!isUploadEnable" (click)="onUpload();fileChosen.value=''">
             Upload
           </button>
         </div>

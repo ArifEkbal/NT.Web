@@ -11,7 +11,7 @@
         <br>
     </div>
     
-    <form #icdForm="ngForm" (ngSubmit)="icdFormSubmit()">
+    <form #icdForm="ngForm" (ngSubmit)="icdFormSubmit(icdForm)">
         <div class="form-group fieldset">
             <div class="row">
                 <div class="col-md-4">
@@ -123,7 +123,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="custom-file mb-3">
-                        <input class="fileUpload" type="file" name="filename" (change)=onFileSelected($event)
+                        <input #fileChosen class="fileUpload" type="file" name="filename" (change)=onFileSelected($event)
                             [disabled]="!(icdModel.GuardianName && 
                                                     icdModel.ApplicantName && 
                                                     icdModel.ApplicantTitle && 
@@ -134,7 +134,7 @@
                     </div>
                 </div>
                 <div class="col-md-1">
-                    <button type="button" mat-raised-button [disabled]="!fileIsSelected" (click)="onUpload()">
+                    <button type="button" mat-raised-button [disabled]="!isUploadEnable" (click)="onUpload(); fileChosen.value='' ">
                         Upload
                     </button>
                 </div>
@@ -159,7 +159,7 @@
                                        </div>
                             </div>
                             <div class="col-md-1">
-                                    <button type="button" mat-raised-button  [disabled]="!fileIsSelected" (click)="onUpload()" >
+                                    <button type="button" mat-raised-button  [disabled]="!isUploadEnable" (click)="onUpload()" >
                                       Upload
                                     </button>
                                  </div>
@@ -184,7 +184,7 @@
                                      
                         </div>
                         <div class="col-md-1">
-                                <button type="button" mat-raised-button  [disabled]="!fileIsSelected" (click)="onUpload()" >
+                                <button type="button" mat-raised-button  [disabled]="!isUploadEnable" (click)="onUpload()" >
                                   Upload
                                 </button>
                              </div>

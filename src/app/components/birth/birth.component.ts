@@ -11,6 +11,7 @@ import { GuardianRadioBtns } from 'src/app/Constants/guardian-radioBtns';
 import { ToasterService } from 'src/app/helper/toaster.service';
 import { Birth } from 'src/app/Models/birth.model';
 import { FatherTitles } from 'src/app/Constants/father-titles';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-birth',
@@ -24,7 +25,7 @@ export class BirthComponent implements OnInit {
   postURL = API_URL + "BirthCertificate";
   public fileUploaded = false;
   selectedFile: File;
-  fileIsSelected = false;
+  isUploadEnable = false;
   fileUploadStatus: FileUploadStatus;
   public applicantTitles = ApplicantTitles;
   public fatherTitles = FatherTitles;
@@ -42,7 +43,7 @@ export class BirthComponent implements OnInit {
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
     console.log(this.selectedFile);
-    this.fileIsSelected = true;
+    this.isUploadEnable = true;
   }
   onUpload() {
     const fd = new FormData;
@@ -72,7 +73,7 @@ export class BirthComponent implements OnInit {
       })
     this.fileUploaded = true;
   }
-  birthFormSubmit() {
+  birthFormSubmit(birthForm:NgForm) {
     console.log("hi");
     this.crudService.postData(this.postURL, this.birthModel).
     subscribe((response: FileUploadStatus)=> {
@@ -80,7 +81,7 @@ export class BirthComponent implements OnInit {
       console.log(response);
       if(response.StatusCode == 201){
         this.toasterService.openSuccessSnackbar("Form submitted successfully");
-        this.birthModel = new Birth();
+        birthForm.resetForm();
       }
     },error => {
       this.toasterService.openErrorSnackbar("An unexpected error occured");
