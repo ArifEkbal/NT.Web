@@ -27,6 +27,9 @@ import { NewPanComponent } from './components/new-pan/new-pan.component';
 import { UpdatePanComponent } from './components/update-pan/update-pan.component';
 import { BirthComponent } from './components/birth/birth.component';
 import { DeathComponent } from './components/death/death.component';
+import { JqxdemoComponent } from './components/jqxdemo/jqxdemo.component';
+import { jqxBarGaugeComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxbargauge';
+import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid';
 
 
 @NgModule({
@@ -43,8 +46,10 @@ import { DeathComponent } from './components/death/death.component';
     NewPanComponent,
     UpdatePanComponent,
     BirthComponent,
-    DeathComponent
-    
+    DeathComponent,
+    JqxdemoComponent,
+    jqxBarGaugeComponent,
+    jqxGridComponent
    
   ],
   entryComponents: [
@@ -72,7 +77,7 @@ import { DeathComponent } from './components/death/death.component';
     MatDialogModule,
     MatSnackBarModule,
     AgGridModule.withComponents(null),
-   
+    
   ], 
   providers: [DemoService ],
   bootstrap: [AppComponent]

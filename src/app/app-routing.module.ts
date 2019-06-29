@@ -9,6 +9,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { BirthComponent } from './components/birth/birth.component';
 import { DeathComponent } from './components/death/death.component';
+import { JqxdemoComponent } from './components/jqxdemo/jqxdemo.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path:"new-pan",component:NewPanComponent},
     {path:"update-pan",component:UpdatePanComponent},
     {path:"birth",component:BirthComponent},
-    {path:"death",component:DeathComponent}    
+    {path:"death",component:DeathComponent},
+    {path:"jqxdemo",component:JqxdemoComponent}    
   ]
   },
 ];
